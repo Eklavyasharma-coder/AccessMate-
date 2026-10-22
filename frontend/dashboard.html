@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — AccessMate</title><link rel="stylesheet" href="./css/style.css">
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/preferences.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./index.html"><span class="brand-mark">A</span> AccessMate</a><nav><a href="./index.html">Home</a><a class="active" href="./dashboard.html">Dashboard</a><a href="./documents.html">Documents</a><button class="nav-button" data-logout>Sign out</button><span class="accessibility-tools" aria-label="Appearance and accessibility settings"><button type="button" data-pref="theme" aria-pressed="false" title="Toggle light or dark mode">Light / dark</button><button type="button" data-pref="text-size" aria-pressed="false" title="Toggle larger text">Text size</button><button type="button" data-pref="contrast" aria-pressed="false" title="Toggle high contrast">Contrast</button><button type="button" data-pref="motion" aria-pressed="false" title="Reduce interface motion">Reduce motion</button></span></nav></header>
+  <main class="page-shell">
+    <div class="page-title"><div><p class="eyebrow">ACCESSMATE AI</p><h1>Your workspace</h1><p class="muted" id="welcomeText">Welcome back. Your documents are all in one place.</p></div><a class="button primary" href="./documents.html">Manage documents <span aria-hidden="true">→</span></a></div>
+    <section class="dashboard-grid">
+      <article class="stat-card"><span class="stat-label">Workspace</span><strong>Ready for you</strong><small>Your personal AccessMate library</small></article>
+      <article class="stat-card"><span class="stat-label">Architecture</span><strong>Modular</strong><small>Frontend · API · PostgreSQL</small></article>
+      <article class="stat-card"><span class="stat-label">API status</span><strong id="apiStatus">Checking…</strong><small id="apiStatusDetail">Checking backend health endpoint</small></article>
+    </section>
+    <section class="panel"><div class="panel-heading"><div><p class="eyebrow">QUICK ACTIONS</p><h2>What would you like to do next?</h2></div></div><div class="action-grid"><a class="action-card" href="./documents.html"><span class="feature-icon">▤</span><strong>View documents</strong><small>Upload, download, or delete your files</small><span class="action-arrow">→</span></a><a class="action-card" href="./login.html"><span class="feature-icon">◎</span><strong>Account access</strong><small>Sign in or create an account</small><span class="action-arrow">→</span></a></div></section>
+  </main>
+  <footer class="footer"><span>© <span id="year"></span> AccessMate</span><span>Accessible documents, organized simply.</span></footer>
+</body>
+</html>

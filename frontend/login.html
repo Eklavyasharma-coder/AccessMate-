@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in — AccessMate</title><link rel="stylesheet" href="./css/style.css">
+  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/preferences.js"></script>
+</head>
+<body class="auth-page">
+  <header class="topbar"><a class="brand" href="./index.html"><span class="brand-mark">A</span> AccessMate</a><nav><a href="./index.html">Home</a><a href="./dashboard.html">Dashboard</a><span class="accessibility-tools" aria-label="Appearance and accessibility settings"><button type="button" data-pref="theme" aria-pressed="false" title="Toggle light or dark mode">Light / dark</button><button type="button" data-pref="text-size" aria-pressed="false" title="Toggle larger text">Text size</button><button type="button" data-pref="contrast" aria-pressed="false" title="Toggle high contrast">Contrast</button><button type="button" data-pref="motion" aria-pressed="false" title="Reduce interface motion">Reduce motion</button></span></nav></header>
+  <main class="auth-wrap">
+    <section class="auth-card">
+      <p class="eyebrow">WELCOME TO ACCESSMATE</p><h1 id="formTitle">Sign in</h1><p class="muted">Access your document workspace.</p>
+      <div class="switcher"><button class="switch active" type="button" id="loginTab">Sign in</button><button class="switch" type="button" id="registerTab">Create account</button></div>
+      <form id="authForm">
+        <label id="nameLabel" class="hidden" for="name">Full name</label><input class="hidden" id="name" name="name" autocomplete="name" placeholder="Your full name">
+        <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required>
+        <button class="button primary full" type="submit" id="submitButton">Sign in</button>
+        <p id="authMessage" class="form-message" role="status"></p>
+      </form>
+      <p class="small-note">Use at least 8 characters for your password.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const authRoutes = require('./routes/auth.routes');
+const documentRoutes = require('./routes/documents.routes');
+const aiRoutes = require('./routes/ai.routes');
+const activityRoutes = require('./routes/activity.routes');
+const db = require('./config/db');
+const { errorHandler, notFound } = require('./middleware/error.middleware');
+const app = express();
+app.disable('x-powered-by');
+if (process.env.TRUST_PROXY === 'true') app.set('trust proxy', 1);
+const developmentOrigins = ['http://localhost:3000','http://127.0.0.1:3000','http://localhost:5000','http://127.0.0.1:5000','http://localhost:5500','http://127.0.0.1:5500','http://localhost:8080','http://127.0.0.1:8080'];
+const configuredOrigins = String(process.env.FRONTEND_ORIGIN || '').split(',').map(origin => origin.trim()).filter(Boolean);
+const allowedOrigins = new Set(process.env.NODE_ENV === 'production' ? configuredOrigins : [...developmentOrigins, ...configuredOrigins]);
+app.use(helmet());
+app.use(cors({ origin: (origin, callback) => { if (!origin) return callback(null, true); if (allowedOrigins.has(origin)) return callback(null, true); const error = new Error('Origin is not allowed by CORS.'); error.status = 403; return callback(error); }, credentials: false, methods: ['GET','POST','PATCH','DELETE','OPTIONS'], allowedHeaders: ['Content-Type','Authorization'] }));
+app.use(express.json({ limit: '256kb', strict: true }));
+app.use(express.urlencoded({ extended: false, limit: '64kb', parameterLimit: 100 }));
+app.get('/api/health', async (_req, res) => { let database = 'unavailable'; try { await db.query('SELECT 1'); database = 'connected'; } catch (_error) {} res.status(database === 'connected' ? 200 : 503).json({ status: database === 'connected' ? 'ok' : 'degraded', service: 'AccessMate API', database, timestamp: new Date().toISOString() }); });
+app.use('/api/auth', authRoutes); app.use('/api/documents', documentRoutes); app.use('/api/ai', aiRoutes); app.use('/api/activity', activityRoutes);
+// Uploaded files are private: serve only through ownership-checked download routes.
+app.use(notFound); app.use(errorHandler);
+module.exports = app;

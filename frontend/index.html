@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- npx serve . -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AccessMate document management workspace">
+  <title>AccessMate AI — Scan, Read & Understand</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/preferences.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html"><span class="brand-mark">A</span> AccessMate</a>
+    <nav><a href="./index.html">Home</a><a href="./dashboard.html">Dashboard</a><a href="./documents.html">Documents</a><a class="nav-cta" href="./login.html">Sign in</a><span class="accessibility-tools" aria-label="Appearance and accessibility settings"><button type="button" data-pref="theme" aria-pressed="false" title="Toggle light or dark mode">Light / dark</button><button type="button" data-pref="text-size" aria-pressed="false" title="Toggle larger text">Text size</button><button type="button" data-pref="contrast" aria-pressed="false" title="Toggle high contrast">Contrast</button><button type="button" data-pref="motion" aria-pressed="false" title="Reduce interface motion">Reduce motion</button></span></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ACCESSMATE AI · ACCESSIBLE DOCUMENTS</p>
+        <h1>Read the world.<br><span>One page at a time.</span></h1>
+        <p class="lead">An accessible document companion designed to help you bring files together, prepare them for reading, and manage your personal library in a calmer workspace.</p>
+        <div class="hero-actions"><a class="button primary" href="./login.html">Get started <span aria-hidden="true">→</span></a><a class="button secondary" href="./dashboard.html">Explore dashboard</a></div>
+        <div class="trust-line"><span class="status-dot"></span> Accessible by design · Built to grow</div>
+      </div>
+      <div class="preview-card">
+        <div class="preview-head"><div><span class="eyebrow">YOUR ACCESSMATE SPACE</span><h3>Your library</h3></div><span class="icon-chip">↗</span></div>
+        <div class="metric-row"><div class="metric"><span>Document library</span><strong>In one place</strong><small>Upload and manage files</small></div><div class="metric"><span>Experience</span><strong>Accessible</strong><small>Clear, calm navigation</small></div></div>
+        <div class="doc-row"><span class="file-icon pdf">PDF</span><div class="doc-info"><strong>Study notes.pdf</strong><small>PDF document</small></div><span class="file-state">Ready</span></div>
+        <div class="doc-row"><span class="file-icon doc">DOC</span><div class="doc-info"><strong>Important letter.docx</strong><small>Word document</small></div><span class="file-state">Ready</span></div>
+        <div class="doc-row"><span class="file-icon img">IMG</span><div class="doc-info"><strong>Scanned page.jpg</strong><small>Image file</small></div><span class="file-state">Ready</span></div>
+        <p class="preview-note">Preview only · Sign in to manage your own files</p>
+      </div>
+    </section>
+    <section class="feature-section">
+      <div class="section-heading"><p class="eyebrow">MADE FOR CLEARER ACCESS</p><h2>A more thoughtful way to access documents.</h2></div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-icon">▤</span><h3>One document library</h3><p>Upload, download, and manage your files from one organized workspace.</p></article>
+        <article class="feature-card"><span class="feature-icon">⌘</span><h3>Calm, accessible UI</h3><p>Readable text, clear actions, keyboard focus states, and reduced-motion support.</p></article>
+        <article class="feature-card"><span class="feature-icon">⌁</span><h3>Keep your existing setup</h3><p>The current frontend, Express API, and PostgreSQL schema stay in place while the visual layer evolves.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>© <span id="year"></span> AccessMate</span><span>Scan-ready vision · Your existing library stays yours.</span></footer>
+</body>
+</html>
